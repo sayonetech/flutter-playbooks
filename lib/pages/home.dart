@@ -8,6 +8,9 @@ class Demo extends StatelessWidget {
     return new MaterialApp(
       title: 'Random Name Generator',
       home: new RandomWords(),
+      theme: new ThemeData(
+        primaryColor: Colors.red,
+      ),
     );
   }
 }

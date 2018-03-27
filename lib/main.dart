@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './pages/home.dart';
+import './pages/landing_page.dart';
 
 void main() {
-  runApp(new Demo());
+  runApp(new MaterialApp(
+    home: new LandingPage(),
+  ));
 }
