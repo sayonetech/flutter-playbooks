@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../ui/list_view.dart';
+import './home.dart';
 
 class LandingPage extends StatelessWidget {
   @override
