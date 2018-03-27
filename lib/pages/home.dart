@@ -19,7 +19,7 @@ class RandomWordsState extends State<RandomWords> {
 
     return new Scaffold (
       appBar: new AppBar(
-        title: new Text('Startup Name Generator'),
+        title: new Text('Directory'),
         actions: <Widget>[
           new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
         ],
@@ -51,7 +51,7 @@ class RandomWordsState extends State<RandomWords> {
 
           return new Scaffold(
             appBar: new AppBar(
-              title: new Text('Saved Suggestions'),
+              title: new Text('Saved List'),
             ),
             body: new ListView(children: divided),
           );
