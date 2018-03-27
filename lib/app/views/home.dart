@@ -22,10 +22,15 @@ class RandomWordsState extends State<RandomWords> {
         title: new Text('Directory'),
         actions: <Widget>[
           new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
+          new IconButton(icon: new Icon(Icons.contacts), onPressed: _showDetail),
         ],
       ),
       body: _buildSuggestions(),
     );
+  }
+
+  void _showDetail(){
+
   }
 
   void _pushSaved() {
