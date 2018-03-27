@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './home.dart';
+import '../config/application.dart';
 
 
 class LandingPage extends StatelessWidget {
@@ -9,8 +9,7 @@ class LandingPage extends StatelessWidget {
     return new Material(
       color: Colors.blueAccent,
       child: new InkWell(
-        onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-            builder: (BuildContext context) => new RandomWords())),
+        onTap: () => Application.router.navigateTo(context, "/home"),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

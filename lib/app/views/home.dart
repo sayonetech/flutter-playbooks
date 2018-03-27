@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import '../config/application.dart';
 
 
-
-class RandomWords extends StatefulWidget{
+class HomeController extends StatefulWidget{
   @override
   createState() => new RandomWordsState();
 }
 
-class RandomWordsState extends State<RandomWords> {
+class RandomWordsState extends State<HomeController> {
 
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
@@ -30,7 +30,7 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   void _showDetail(){
-
+    Application.router.navigateTo(context, "/home/detail");
   }
 
   void _pushSaved() {
