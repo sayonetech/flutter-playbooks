@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './home.dart';
+import '../ui/list_view.dart';
 
 class LandingPage extends StatelessWidget {
   @override
@@ -8,7 +8,7 @@ class LandingPage extends StatelessWidget {
       color: Colors.blueAccent,
       child: new InkWell(
         onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-            builder: (BuildContext context) => new Demo())),
+            builder: (BuildContext context) => new RandomWords())),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
