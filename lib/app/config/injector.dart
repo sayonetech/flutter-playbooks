@@ -1,24 +1,19 @@
+import '../network/api.dart';
 
-
-enum Flavor {
-  DEV,
-  PROD,
-  STAGING
-}
 
 class Injector {
 
-  static final Injector _singleton = new Injector._internal();
-  static Flavor _flavor;
+  static final Injector injector = new Injector._injector();
+  ApiClient _apiClient;
 
-  static configureFlavor(Flavor flavor) {
-    _flavor = flavor;
+  Injector._injector(){
+    _apiClient = new ApiClient();
   }
 
   factory Injector() {
-    return _singleton;
+    return injector;
   }
 
-  Injector._internal();
+  ApiClient get apiClient => _apiClient;
 
 }
