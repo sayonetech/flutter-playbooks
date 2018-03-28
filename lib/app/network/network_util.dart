@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class NetworkUtil {
   final JsonDecoder _decoder = new JsonDecoder();
 
-  Future<dynamic> request(String url) {
+  Future<dynamic> get(String url) {
     return http.get(url)
         .then((http.Response response) {
       final String res = response.body;
@@ -16,5 +16,17 @@ class NetworkUtil {
       }
       return _decoder.convert(res);
     });
+  }
+
+  void post(){
+    //TODO implementation
+  }
+
+  void put(){
+    //TODO implementation
+  }
+
+  void delete(){
+    //TODO implementation
   }
 }
