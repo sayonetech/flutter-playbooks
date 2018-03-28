@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import '../config/application.dart';
+import 'package:helloworld/app/application.dart';
 
 
 class HomeController extends StatefulWidget{

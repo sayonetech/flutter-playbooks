@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
-import './routes.dart';
+import 'package:helloworld/app/router/routes.dart';
 import './application.dart';
-import '../views/landing_page.dart';
+import './views/landing_page.dart';
 
 class AppComponent extends StatefulWidget {
 
