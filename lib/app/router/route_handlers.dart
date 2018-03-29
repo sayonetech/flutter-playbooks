@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../views/detail_page.dart';
-import '../views/landing_page.dart';
+import '../views/login/index.dart';
 import '../views/home.dart';
 
 var detailHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -9,7 +9,7 @@ var detailHandler = new Handler(handlerFunc: (BuildContext context, Map<String, 
 });
 
 var rootHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return new LandingPage();
+  return new LoginScreen();
 });
 
 var homeHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
