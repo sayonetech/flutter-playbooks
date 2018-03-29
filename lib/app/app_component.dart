@@ -3,7 +3,6 @@ import 'package:fluro/fluro.dart';
 
 import 'package:helloworld/app/router/routes.dart';
 import './application.dart';
-import './views/landing_page.dart';
 
 class AppComponent extends StatefulWidget {
 
