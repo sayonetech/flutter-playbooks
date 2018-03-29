@@ -2,6 +2,9 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'store.g.dart';
 
+/**
+ * https://flutter.io/json/
+ */
 @JsonSerializable()
 class Store extends Object with _$StoreSerializerMixin{
 
