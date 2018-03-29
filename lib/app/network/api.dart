@@ -14,7 +14,7 @@ class ApiClient {
       _networkUtil.get(ApiConfiguration.storeUrl(loc))
           .then((dynamic res) {
               List data = res;
-              return data.map((obj) => new Store.map(obj)).toList();
+              return data.map((obj) => new Store.fromJson(obj)).toList();
       });
 
 }
