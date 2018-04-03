@@ -4,10 +4,10 @@ import 'loginAnimation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/animation.dart';
 import 'dart:async';
-import '../../components/sign_up_link.dart';
-import '../../components/form.dart';
-import '../../components/sign_in_button.dart';
-import '../../components/white_tick.dart';
+import 'package:helloworld/app/components/login/sign_up_link.dart';
+import 'package:helloworld/app/components/login/form.dart';
+import 'package:helloworld/app/components/login/sign_in_button.dart';
+import 'package:helloworld/app/components/login/white_tick.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
