@@ -38,8 +38,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.apptreesoftware.mapview.MapActivity" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDKf8SiLaik7QuY8oFy-xv0UnWCMYWaTbE"/>
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-    </application>
+        </application>
 </manifest>
