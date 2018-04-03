@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:helloworld/app/application.dart';
+import './calendar_view.dart';
 
 
 class HomeController extends StatefulWidget{
@@ -40,14 +41,7 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
         controller: _tabController,
         children: <Widget>[
           _buildSuggestions(),
-          new ListView.builder(
-            key: new PageStorageKey('notifications'),
-            itemBuilder: (BuildContext context, int index) {
-              return new ListTile(
-                title: new Text('Notification $index'),
-              );
-            },
-          ),
+          new CalendarView(),
         ],
       ),
       bottomNavigationBar: new BottomNavigationBar(
@@ -64,7 +58,7 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
             title: new Text('Home'),
           ),
           new BottomNavigationBarItem(
-            icon: new Icon(Icons.map),
+            icon: new Icon(Icons.calendar_today),
             title: new Text('Map'),
           ),
         ],
