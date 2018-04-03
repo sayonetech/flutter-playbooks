@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:helloworld/app/application.dart';
-import './calendar_view.dart';
+import 'package:flutter_calendar/flutter_calendar.dart';
 
 
 class HomeController extends StatefulWidget{
@@ -41,7 +41,9 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
         controller: _tabController,
         children: <Widget>[
           _buildSuggestions(),
-          new CalendarView(),
+          new Calendar(
+            isExpandable: true
+          ),
         ],
       ),
       bottomNavigationBar: new BottomNavigationBar(
