@@ -5,19 +5,30 @@ import 'package:helloworld/app/application.dart';
 
 class HomeController extends StatefulWidget{
   @override
-  createState() => new RandomWordsState();
+  createState() => new HomePageState();
 }
 
-class RandomWordsState extends State<HomeController> {
+class HomePageState extends State<HomeController> with TickerProviderStateMixin {
 
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
   final _saved = new Set<WordPair>();
+  TabController _tabController;
+  int _tab = 0;
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    _tabController = new TabController(length: 2, vsync: this);
+  }
 
-    return new Scaffold (
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+  Widget build(BuildContext context) {
+    return new Scaffold(
       appBar: new AppBar(
         title: new Text('Directory'),
         actions: <Widget>[
@@ -25,7 +36,39 @@ class RandomWordsState extends State<HomeController> {
           new IconButton(icon: new Icon(Icons.contacts), onPressed: _showDetail),
         ],
       ),
-      body: _buildSuggestions(),
+      body: new TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          _buildSuggestions(),
+          new ListView.builder(
+            key: new PageStorageKey('notifications'),
+            itemBuilder: (BuildContext context, int index) {
+              return new ListTile(
+                title: new Text('Notification $index'),
+              );
+            },
+          ),
+        ],
+      ),
+      bottomNavigationBar: new BottomNavigationBar(
+        onTap: (int value) {
+          _tabController.animateTo(value);
+          setState(() {
+            _tab = value;
+          });
+        },
+        currentIndex: _tab,
+        items: <BottomNavigationBarItem>[
+          new BottomNavigationBarItem(
+            icon: new Icon(Icons.home),
+            title: new Text('Home'),
+          ),
+          new BottomNavigationBarItem(
+            icon: new Icon(Icons.map),
+            title: new Text('Map'),
+          ),
+        ],
+      ),
     );
   }
 
