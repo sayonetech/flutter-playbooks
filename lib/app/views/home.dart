@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:helloworld/app/application.dart';
 import 'package:flutter_calendar/flutter_calendar.dart';
-
+import 'package:flutter/services.dart';
 
 class HomeController extends StatefulWidget{
   @override
@@ -15,11 +15,13 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
   final _biggerFont = const TextStyle(fontSize: 18.0);
   final _saved = new Set<WordPair>();
   TabController _tabController;
+  static const MethodChannel methodChannel = const MethodChannel('com.sayonetech/maps');
   int _tab = 0;
 
   @override
   void initState() {
     super.initState();
+
     _tabController = new TabController(length: 2, vsync: this);
   }
 
@@ -28,6 +30,7 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
     _tabController.dispose();
     super.dispose();
   }
+
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -35,6 +38,7 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
         actions: <Widget>[
           new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
           new IconButton(icon: new Icon(Icons.contacts), onPressed: _showDetail),
+          new IconButton(icon: new Icon(Icons.map), onPressed: _launchMaps),
         ],
       ),
       body: new TabBarView(
@@ -61,7 +65,7 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
           ),
           new BottomNavigationBarItem(
             icon: new Icon(Icons.calendar_today),
-            title: new Text('Map'),
+            title: new Text('Calendar'),
           ),
         ],
       ),
@@ -72,6 +76,10 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
     Application.router.navigateTo(context, "/home/detail");
   }
 
+  void _launchMaps() {
+      methodChannel.invokeMethod('launchMaps', {"lat": 37.4219999, "long": -122.0840575});
+  }
+  
   void _pushSaved() {
     Navigator.of(context).push(
       new MaterialPageRoute(

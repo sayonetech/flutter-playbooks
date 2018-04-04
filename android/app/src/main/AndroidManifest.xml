@@ -38,5 +38,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.sayonetech.map.MapsActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDKf8SiLaik7QuY8oFy-xv0UnWCMYWaTbE"/>
         </application>
 </manifest>
