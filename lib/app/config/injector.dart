@@ -10,6 +10,7 @@ class Injector {
   MapView _mapView;
 
   Injector._injector(){
+    MapView.setApiKey("AIzaSyDKf8SiLaik7QuY8oFy-xv0UnWCMYWaTbE");
     _apiClient = new ApiClient();
     _mapView = new MapView();
   }

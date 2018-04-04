@@ -16,7 +16,7 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
   final _saved = new Set<WordPair>();
-  Injector injector;
+  Injector injector = new Injector();
   TabController _tabController;
   static const MethodChannel methodChannel = const MethodChannel('com.sayonetech/maps');
   int _tab = 0;
