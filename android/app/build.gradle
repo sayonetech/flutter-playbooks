@@ -12,15 +12,11 @@ if (flutterRoot == null) {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 27
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
 
     lintOptions {
         disable 'InvalidPackage'
@@ -28,7 +24,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.sayonetech.helloworld"
+        applicationId "com.sayonetech.playbook"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
@@ -42,7 +38,17 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+        debug {}
+        profile {
+            // Specifies a sorted list of fallback build types that the
+            // plugin should try to use when a dependency does not include a
+            // "staging" build type. You may specify as many fallbacks as you
+            // like, and the plugin selects the first build type that's
+            // available in the dependency.
+            matchingFallbacks = ['debug', 'release']
+        }
     }
+
 }
 
 flutter {
@@ -50,7 +56,6 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
