@@ -3,6 +3,8 @@ import 'package:english_words/english_words.dart';
 import 'package:helloworld/app/application.dart';
 import 'package:flutter_calendar/flutter_calendar.dart';
 import 'package:flutter/services.dart';
+import 'package:helloworld/app/config/injector.dart';
+import 'package:map_view/map_view.dart';
 
 class HomeController extends StatefulWidget{
   @override
@@ -14,14 +16,16 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
   final _saved = new Set<WordPair>();
+  Injector injector;
   TabController _tabController;
   static const MethodChannel methodChannel = const MethodChannel('com.sayonetech/maps');
   int _tab = 0;
+  MapView mapView;
 
   @override
   void initState() {
     super.initState();
-
+    mapView = injector.mapView;
     _tabController = new TabController(length: 2, vsync: this);
   }
 
@@ -77,7 +81,8 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
   }
 
   void _launchMaps() {
-      methodChannel.invokeMethod('launchMaps', {"lat": 37.4219999, "long": -122.0840575});
+    mapView.show(new MapOptions(showUserLocation: true));
+      //methodChannel.invokeMethod('launchMaps', {"lat": 37.4219999, "long": -122.0840575});
   }
 
   void _pushSaved() {

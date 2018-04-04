@@ -39,7 +39,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.sayonetech.map.MapsActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-
+        <activity android:name="com.apptreesoftware.mapview.MapActivity" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDKf8SiLaik7QuY8oFy-xv0UnWCMYWaTbE"/>
-        </application>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
 </manifest>
