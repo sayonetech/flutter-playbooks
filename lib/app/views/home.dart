@@ -79,7 +79,7 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
   void _launchMaps() {
       methodChannel.invokeMethod('launchMaps', {"lat": 37.4219999, "long": -122.0840575});
   }
-  
+
   void _pushSaved() {
     Navigator.of(context).push(
       new MaterialPageRoute(
