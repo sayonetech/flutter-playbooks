@@ -7,7 +7,7 @@ void main() {
   print("main");
   print(_injector);
 
-  _injector.apiClient.fetchMalls("12.969840,77.582443").then((stores) {
+  _injector.apiClient.fetchMalls("12.969840","77.582443").then((stores) {
     print(stores);
   });
 

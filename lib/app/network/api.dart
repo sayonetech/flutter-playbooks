@@ -10,8 +10,9 @@ class ApiClient {
     _networkUtil = new NetworkUtil();
   }
 
-  Future<List<Store>> fetchMalls(String loc) =>
-      _networkUtil.get(ApiConfiguration.storeUrl(loc))
+  Future<List<Store>> fetchMalls(String lat, String lng) =>
+      //ApiConfiguration.storeUrl(loc)
+      _networkUtil.get(ApiConfiguration.storeUrl(lat,lng))
           .then((dynamic res) {
               List data = res;
               return data.map((obj) => new Store.fromJson(obj)).toList();
