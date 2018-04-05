@@ -16,6 +16,12 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
   final _saved = new Set<WordPair>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final String _simpleValue1 = 'Menu item value one';
+  final String _simpleValue2 = 'Menu item value two';
+  final String _simpleValue3 = 'Menu item value three';
+  String _simpleValue;
+
   Injector injector = new Injector();
   TabController _tabController;
   static const MethodChannel methodChannel = const MethodChannel('com.sayonetech/maps');
@@ -37,12 +43,30 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
 
   Widget build(BuildContext context) {
     return new Scaffold(
+      key: _scaffoldKey,
       appBar: new AppBar(
         title: new Text('Directory'),
         actions: <Widget>[
           new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
           new IconButton(icon: new Icon(Icons.contacts), onPressed: _showDetail),
           new IconButton(icon: new Icon(Icons.map), onPressed: _launchMaps),
+          new PopupMenuButton<String>(
+            onSelected: showMenuSelection,
+            itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+              const PopupMenuItem<String>(
+                  value: 'Toolbar menu',
+                  child: const Text('Toolbar menu')
+              ),
+              const PopupMenuItem<String>(
+                  value: 'Right here',
+                  child: const Text('Right here')
+              ),
+              const PopupMenuItem<String>(
+                  value: 'Hooray!',
+                  child: const Text('Hooray!')
+              ),
+            ],
+          )
         ],
       ),
       body: new TabBarView(
@@ -74,6 +98,18 @@ class HomePageState extends State<HomeController> with TickerProviderStateMixin 
         ],
       ),
     );
+  }
+
+  void showMenuSelection(String value) {
+    if (<String>[_simpleValue1, _simpleValue2, _simpleValue3].contains(value))
+      _simpleValue = value;
+    showInSnackBar('You selected: $value');
+  }
+
+  void showInSnackBar(String value) {
+    _scaffoldKey.currentState.showSnackBar(new SnackBar(
+        content: new Text(value)
+    ));
   }
 
   void _showDetail(){
