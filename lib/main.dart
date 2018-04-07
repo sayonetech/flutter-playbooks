@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/app/app_component.dart';
 import 'package:helloworld/app/config/injector.dart';
 import 'package:helloworld/app/events/store_event.dart';
+import 'package:flutter/services.dart';
 
-void main() {
+void main() async {
   Injector _injector = new Injector();
   print("main");
   print(_injector);
+  //Clipboard
+  Clipboard.setData(new ClipboardData(text: "Testing Clipboard"));
+  ClipboardData data = await Clipboard.getData(Clipboard.kTextPlain);
+  print(data.text);
 
   _injector.apiClient.fetchMalls("12.969840","77.582443").then((stores) {
     print(stores);
