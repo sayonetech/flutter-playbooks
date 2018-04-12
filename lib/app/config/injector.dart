@@ -17,6 +17,9 @@ class Injector {
   }
 
 
+  /// Use the factory keyword when implementing a constructor that doesn’t always create a new instance of its class.
+  /// For example, a factory constructor might return an instance from a cache,
+  /// or it might return an instance of a subtype.
   factory Injector() {
     return injector;
   }
