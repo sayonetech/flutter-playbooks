@@ -16,6 +16,7 @@ dependencies:
   uri: ^0.11.2
   device_info: 0.1.2
   event_bus: ^0.4.1
+  jaguar_http: ^0.0.2+1
   map_view:
       git: git@github.com:sayonetech/flutter_google_map_view.git
 
@@ -25,6 +26,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+
+jaguar_http:
+  - app/jaguar_http/api.dart
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

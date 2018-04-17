@@ -1,0 +1,2 @@
+serializers:
+  - app/jaguar_http/store.dart
