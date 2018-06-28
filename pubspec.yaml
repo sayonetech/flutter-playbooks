@@ -17,8 +17,7 @@ dependencies:
   device_info: 0.1.2
   event_bus: ^0.4.1
   jaguar_http: ^0.0.2+1
-  map_view:
-      git: git@github.com:sayonetech/flutter_google_map_view.git
+  map_view: ^0.0.3
 
 dev_dependencies:
   build_runner: ^0.7.6
