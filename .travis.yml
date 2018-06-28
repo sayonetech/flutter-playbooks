@@ -14,7 +14,7 @@ before_script:
   - ./flutter/bin/flutter doctor
 script:
   - ./flutter/bin/flutter test
-  - ./flutter/bin/flutter build apk
+  #- ./flutter/bin/flutter build apk #TODO android APK Automation
 cache:
   directories:
     - $HOME/.pub-cache
