@@ -30,9 +30,9 @@ void main() async {
     print(event.runtimeType);
   });
 
-  _injector.eventBus.on(StoreLoadedEvent).listen((dynamic event) {
-      print("Listen");
-      print(event.store);
-  });
+//  _injector.eventBus.on(StoreLoadedEvent).listen((dynamic event) {
+//      print("Listen");
+//      print(event.store);
+//  });
   runApp(new AppComponent());
 }
