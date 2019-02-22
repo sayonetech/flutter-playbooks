@@ -30,9 +30,10 @@ void main() async {
     print(event.runtimeType);
   });
 
-//  _injector.eventBus.on(StoreLoadedEvent).listen((dynamic event) {
-//      print("Listen");
-//      print(event.store);
-//  });
+  _injector.eventBus.on<StoreLoadedEvent>().listen((event) {
+    // All events are of type UserLoggedInEvent (or subtypes of it).
+    print(event.store);
+  });
+  
   runApp(new AppComponent());
 }
