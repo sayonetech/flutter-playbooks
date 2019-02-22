@@ -34,6 +34,6 @@ void main() async {
     // All events are of type UserLoggedInEvent (or subtypes of it).
     print(event.store);
   });
-  
+
   runApp(new AppComponent());
 }
